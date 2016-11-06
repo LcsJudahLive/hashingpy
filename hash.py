@@ -37,7 +37,7 @@ def makesha256():
 
 for i in range(1,30):
 	file  = open("base.txt","r")
-	out = open("new.txt","w")
+	out = open("MD5.txt","w")
 	start_time = time.time()
 	makemd5()
 	md5.append(time.time() - start_time)
@@ -46,7 +46,7 @@ for i in range(1,30):
 print('md5 OK!')
 for i in range(1,30):
 	file  = open("base.txt","r")
-	out = open("new.txt","w")
+	out = open("SHA1.txt","w")
 	start_time = time.time()
 	makesha1()
 	sha1.append(time.time() - start_time)
@@ -55,7 +55,7 @@ for i in range(1,30):
 print('SHA1 OK!')
 for i in range(1,30):
 	file  = open("base.txt","r")
-	out = open("new.txt","w")
+	out = open("SHA256.txt","w")
 	start_time = time.time()
 	makesha256()
 	sha256.append(time.time() - start_time)
@@ -66,7 +66,7 @@ print('SHA256 OK!')
 average.append((sum(md5)/float(len(md5))))
 average.append((sum(sha1)/float(len(sha1))))
 average.append((sum(sha256)/float(len(sha256))))
-
+average = average * 1000
 print('average OK')
 
 
@@ -76,7 +76,7 @@ y = average
 width = 1/1.5
 plt.bar(x,y,width,align='center',alpha=0.5)
 plt.xticks(x,('MD5','SHA-1','SHA-256'))
-plt.ylabel('Average Time in Seconds')
+plt.ylabel('Average Time for Base Migration in Milliseconds')
 plt.title('Comparison between Hash Functions')
 plt.show()
 
