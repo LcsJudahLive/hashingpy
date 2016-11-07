@@ -77,7 +77,7 @@ width = 1/1.5
 plt.bar(x,y,width,align='center',alpha=0.5)
 plt.xticks(x,('MD5','SHA-1','SHA-256'))
 plt.ylabel('Average Time for Base Migration in Milliseconds')
-plt.title('Comparison between Hash Functions')
+plt.title('Comparison among Hash Functions')
 plt.show()
 
 
