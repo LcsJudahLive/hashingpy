@@ -17,7 +17,7 @@ def makemd5():
 		line = line[0].encode('utf-8')
 		#print(line)
 		m.update(line)	
-		out.write('+ ' + m.hexdigest() + '\n')
+		out.write(m.hexdigest())
 def makesha1():
 	for line in file.readlines():
 		m = hashlib.sha1()
@@ -25,7 +25,7 @@ def makesha1():
 		line = line[0].encode('utf-8')
 		#print(line)
 		m.update(line)	
-		out.write('+ ' + m.hexdigest() + '\n')
+		out.write(m.hexdigest())
 def makesha256():
 	for line in file.readlines():
 		m = hashlib.sha256()
@@ -33,7 +33,7 @@ def makesha256():
 		line = line[0].encode('utf-8')
 		#print(line)
 		m.update(line)	
-		out.write('+ ' + m.hexdigest() + '\n')
+		out.write(m.hexdigest())
 
 for i in range(1,30):
 	file  = open("base.txt","r")
@@ -66,7 +66,8 @@ print('SHA256 OK!')
 average.append((sum(md5)/float(len(md5))))
 average.append((sum(sha1)/float(len(sha1))))
 average.append((sum(sha256)/float(len(sha256))))
-average = average * 1000
+average = np.array(average)
+average = 1000 * average
 print('average OK')
 
 
@@ -81,4 +82,3 @@ plt.title('Comparison among Hash Functions')
 plt.show()
 
 
-#print('[+] Average: %s seconds for md5 hash' % str(sum(average)/float(len(average))))

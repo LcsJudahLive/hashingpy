@@ -21,7 +21,7 @@ def Validator_Hash(file,hash,password):
 	for i in range(1,30):
 		time_hash = time.time()
 		for line in file.readlines():
-			if(line[2:].split('\n')[0] == password):
+			if(line == password):
 				if(hash == "md5"):
 					times_md5.append(time.time() - time_hash)
 					break
